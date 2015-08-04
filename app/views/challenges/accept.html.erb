@@ -1,0 +1,28 @@
+<div class="content">
+    </br>
+    <h1 class="content-head is-center"><img src="<%=User.find(current_user.id).gravatar_url%>"></h1>
+
+
+  <h2 class="content-head is-center">Which one will you pick?</h2>
+
+<%= form_for @challenge, url: {action: "update"}, html: {class: "truth-or-dare-form"} do |f| %>
+<h3><%= dare_question %></h3><br>
+<%= f.text_area :answer %><br>
+<%= f.submit "I'll do the dare" %>
+<%= hidden_field_tag(:status, "accepted") %>
+<%= hidden_field_tag(:truthordare, "dare") %>
+<%= hidden_field_tag(:id, @challenge.id) %>
+<% end %>
+
+<br><br>
+
+<%= form_for @challenge, url: {action: "update"}, html: {class: "truth-or-dare-form"} do |f| %>
+<h3><%= truth_question %></h3>
+<%= f.text_area :answer %><br>
+<%= f.submit "I'll answer the truth" %>
+<%= hidden_field_tag(:status, "accepted") %>
+<%= hidden_field_tag(:truthordare, "truth") %>
+<%= hidden_field_tag(:id, @challenge.id) %>
+<% end %>
+
+</div>
