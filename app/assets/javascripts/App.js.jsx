@@ -10,7 +10,7 @@ App.setPath = function(path){
 
 App.router = function(path){
 
-  if (path === '/') return <HomePageFun />
+  if (path === '/') return <HomePage />
   if (path === '/tweet-box') return <TweetBox />
   return <div>Page Not Found</div>
 }
